@@ -5,6 +5,10 @@ const db = require('./config/db');
 const app = express();
 const port = 8081;
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/notes', (req, res) => {
+    res.send('Her tebe v ochko');
+});
 MongoClient.connect(db.url, (err, database) => {
     if (err) return console.log(err)
     require('./routes')(app, database);
